@@ -67,7 +67,7 @@ RUN pip install -r requirements.txt \
 # install graphite
 RUN git clone -b ${graphite_version} --depth 1 ${graphite_repo} /usr/local/src/graphite-web
 WORKDIR /usr/local/src/graphite-web
-RUN pip install -r requirements.txt \
+RUN pip install -U cffi && pip install -r requirements.txt \
   && python ./setup.py install
 
 # install statsd
